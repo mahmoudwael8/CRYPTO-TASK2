@@ -1,0 +1,41 @@
+import string
+from collections import Counter
+
+
+
+
+def frequency_analysis(cipher_text):
+
+    cipher_text = cipher_text.upper()
+    letter_counts = Counter(filter(str.isalpha, cipher_text))  
+    sorted_letters = [letter for letter, _ in letter_counts.most_common()]  
+    return sorted_letters
+
+def create_decryption_key(cipher_freq, english_freq):
+   
+    decryption_key = {}
+    for cipher_letter, english_letter in zip(cipher_freq, english_freq):
+        decryption_key[cipher_letter] = english_letter
+    return decryption_key
+
+def decrypt_text(cipher_text, decryption_key):
+   
+    return ''.join(decryption_key.get(char, char) for char in cipher_text) 
+
+
+cipher_text = input("\nEnter the encrypted text: ").upper()
+
+
+cipher_letter_freq = frequency_analysis(cipher_text)
+
+
+decryption_key = create_decryption_key(cipher_letter_freq, ENGLISH_LETTER_FREQUENCY)
+
+
+decrypted_text = decrypt_text(cipher_text, decryption_key)
+
+
+print("\n Estimated Decryption Key:")
+print(decryption_key)
+print("\n Possible Decrypted Text:")
+print(decrypted_text)
