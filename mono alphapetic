@@ -7,7 +7,7 @@ def generate_key():
     return dict(zip(original, shuffled))
 
 def invert_key(key):
-    """Invert the key to get the decryption key."""
+   
     return {v: k for k, v in key.items()}
 
 def encrypt_mono(text, key):
@@ -20,7 +20,7 @@ def decrypt_mono(text, key):
     reversed_key = invert_key(key)
     return ''.join(reversed_key.get(char, char) for char in text)  
 
-# Example usage
+
 key = generate_key()
 
 message = input("Enter message: ")
