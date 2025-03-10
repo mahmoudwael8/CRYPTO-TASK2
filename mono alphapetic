@@ -1,7 +1,7 @@
 import string
 
 def generate_key():
-    """Generate a simple monoalphabetic substitution key (A-Z shuffled)."""
+    
     original = string.ascii_uppercase
     shuffled = "QWERTYUIOPASDFGHJKLZXCVBNM"  # Example fixed key, you can shuffle randomly
     return dict(zip(original, shuffled))
@@ -11,12 +11,12 @@ def invert_key(key):
     return {v: k for k, v in key.items()}
 
 def encrypt_mono(text, key):
-    """Encrypt the text using the Monoalphabetic Cipher."""
+   
     text = text.upper()
     return ''.join(key.get(char, char) for char in text)  # Encrypt only letters
 
 def decrypt_mono(text, key):
-    """Decrypt the text using the Monoalphabetic Cipher."""
+ 
     reversed_key = invert_key(key)
     return ''.join(reversed_key.get(char, char) for char in text)  # Decrypt only letters
 
@@ -27,5 +27,5 @@ message = input("Enter message: ")
 encrypted = encrypt_mono(message, key)
 decrypted = decrypt_mono(encrypted, key)
 
-print(f"\n🔐 Encrypted: {encrypted}")
-print(f"🔓 Decrypted: {decrypted}")
+print(f"\n Encrypted: {encrypted}")
+print(f" Decrypted: {decrypted}")
