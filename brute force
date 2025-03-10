@@ -24,6 +24,6 @@ def brute_force_monoalphabetic(cipher_text, max_attempts=5):
         print(f"\n Attempt {attempt + 1}: Key = {''.join(perm)}")
         print(f" Decrypted: {decrypted_text}")
 
-# Example Usage
+
 cipher_text = input("\nEnter the encrypted message: ").upper()
 brute_force_monoalphabetic(cipher_text, max_attempts=5)  
