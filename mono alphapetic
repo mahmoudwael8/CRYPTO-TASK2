@@ -13,12 +13,12 @@ def invert_key(key):
 def encrypt_mono(text, key):
    
     text = text.upper()
-    return ''.join(key.get(char, char) for char in text)  # Encrypt only letters
+    return ''.join(key.get(char, char) for char in text)  
 
 def decrypt_mono(text, key):
  
     reversed_key = invert_key(key)
-    return ''.join(reversed_key.get(char, char) for char in text)  # Decrypt only letters
+    return ''.join(reversed_key.get(char, char) for char in text)  
 
 # Example usage
 key = generate_key()
